@@ -1,0 +1,15 @@
+{
+  "name": "impostor-412",
+  "version": "1.0.0",
+  "description": "Juego del Impostor temático del canal 412 - La Cobra",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4",
+    "qrcode": "^1.5.3"
+  }
+}

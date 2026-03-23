@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impostor 412 - Host Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/host/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <div class="logo-412">4<span class="green">1</span>2</div>
+      <div class="header-title">PANEL DE HOST</div>
+    </div>
+    <div class="header-right">
+      <div class="phase-badge" id="phase-badge">LOBBY</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Columna izquierda: Controles -->
+    <section class="panel controls-panel">
+      <h3>⚡ CONTROLES</h3>
+
+      <!-- QR / URL -->
+      <div class="control-section" id="qr-section">
+        <h4>📱 Conexión de jugadores</h4>
+        <div id="qr-container">
+          <img id="qr-image" alt="QR" />
+          <div id="qr-url" class="qr-url"></div>
+        </div>
+      </div>
+
+      <!-- Botones principales -->
+      <div class="control-section">
+        <div id="start-section">
+          <h4>🎯 Elegir categoría e iniciar</h4>
+          <select id="category-select" class="input-field" style="margin-bottom:8px;">
+            <option value="">-- Seleccionar categoría --</option>
+          </select>
+          <button id="btn-start" class="btn btn-green">🚀 INICIAR JUEGO</button>
+        </div>
+        <button id="btn-next" class="btn btn-blue">⏩ SIGUIENTE FASE</button>
+        <button id="btn-reset" class="btn btn-red">🔄 REINICIAR TODO</button>
+      </div>
+
+      <!-- CPUs para testing -->
+      <div class="control-section">
+        <h4>🤖 CPUs de prueba</h4>
+        <p style="color:var(--gray);font-size:13px;margin-bottom:8px;">Agregar bots que votan aleatoriamente</p>
+        <div style="display:flex;gap:8px;">
+          <button id="btn-add-cpu" class="btn btn-green small" style="flex:1;">+ AGREGAR CPU</button>
+          <button id="btn-remove-cpu" class="btn btn-red small" style="flex:1;">- QUITAR CPU</button>
+        </div>
+        <div id="cpu-feedback" class="feedback"></div>
+      </div>
+
+      <!-- Config -->
+      <div class="control-section">
+        <h4>⚙️ Configuración</h4>
+        <div class="config-row">
+          <label>Impostores:</label>
+          <select id="impostor-count">
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <div class="config-row">
+          <label>Debate (seg):</label>
+          <input type="number" id="debate-time" value="90" min="10" max="300">
+        </div>
+        <div class="config-row">
+          <label>Votación (seg):</label>
+          <input type="number" id="vote-time" value="30" min="10" max="120">
+        </div>
+      </div>
+
+      <!-- Categoría personalizada -->
+      <div class="control-section">
+        <h4>📝 Agregar categoría</h4>
+        <input type="text" id="custom-cat-name" placeholder="Nombre de la categoría" class="input-field">
+        <textarea id="custom-cat-words" placeholder="Palabras separadas por coma (mín. 4)" class="input-field textarea" rows="3"></textarea>
+        <button id="btn-add-cat" class="btn btn-green small">AGREGAR</button>
+        <div id="cat-feedback" class="feedback"></div>
+      </div>
+
+      <!-- Categorías existentes -->
+      <div class="control-section">
+        <h4>📋 Categorías disponibles</h4>
+        <div id="categories-list" class="categories-list"></div>
+      </div>
+    </section>
+
+    <!-- Columna derecha: Jugadores e historial -->
+    <section class="panel players-panel">
+      <h3>👥 JUGADORES (<span id="player-count">0</span>)</h3>
+      <div id="players-list" class="players-list"></div>
+
+      <h3 style="margin-top:24px;">📜 HISTORIAL DE RONDAS</h3>
+      <div id="history-list" class="history-list"></div>
+    </section>
+  </main>
+
+  <!-- Toast notifications -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/host/app.js"></script>
+</body>
+</html>

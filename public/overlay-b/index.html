@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Impostor 412 - Overlay B (Barra Inferior)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/overlay-b/style.css">
+</head>
+<body>
+
+  <!-- Barra inferior completa -->
+  <div class="bottom-bar">
+    <!-- Logo -->
+    <div class="bb-logo">
+      <span class="bb-412">4<span class="g">1</span>2</span>
+    </div>
+
+    <!-- Jugadores -->
+    <div class="bb-players" id="overlay-players"></div>
+
+    <!-- Info + Timer -->
+    <div class="bb-right">
+      <div class="bb-category" id="info-category">ESPERANDO...</div>
+      <div class="bb-round" id="info-round">LOBBY</div>
+      <div class="bb-timer hidden" id="overlay-timer">
+        <span class="bb-timer-label" id="timer-label">DEBATE</span>
+        <span class="bb-timer-value" id="timer-value">90</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerta dramática central -->
+  <div class="overlay-alert hidden" id="overlay-alert">
+    <div class="alert-content" id="alert-content"></div>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Balón animado -->
+  <div class="ball-anim hidden" id="ball-anim">⚽</div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/overlay-b/app.js"></script>
+</body>
+</html>

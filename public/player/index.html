@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Impostor 412 - Jugador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/player/style.css">
+</head>
+<body>
+  <!-- PANTALLA: Ingreso de nombre -->
+  <div id="screen-join" class="screen active">
+    <div class="logo-container">
+      <div class="logo-412">4<span class="green">1</span>2</div>
+      <div class="logo-sub">IMPOSTOR</div>
+    </div>
+    <div class="join-form">
+      <input type="text" id="input-name" placeholder="Tu nombre..." maxlength="20" autocomplete="off">
+      <button id="btn-join" class="btn-primary">ENTRAR A LA SALA</button>
+    </div>
+    <div id="join-error" class="error-msg"></div>
+  </div>
+
+  <!-- PANTALLA: Esperando en lobby -->
+  <div id="screen-lobby" class="screen">
+    <div class="logo-412 small">4<span class="green">1</span>2</div>
+    <h2>Esperando inicio...</h2>
+    <div id="lobby-player-name" class="player-badge"></div>
+    <div class="player-count">Jugadores: <span id="lobby-count">0</span></div>
+    <div class="lobby-dots">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+  </div>
+
+  <!-- PANTALLA: Votar categoría -->
+  <div id="screen-vote-category" class="screen">
+    <h2>VOTÁ LA TEMÁTICA</h2>
+    <div id="category-options" class="category-grid"></div>
+    <div id="vote-status" class="vote-status"></div>
+  </div>
+
+  <!-- PANTALLA: Revelar rol -->
+  <div id="screen-role" class="screen">
+    <div id="role-suspense" class="role-suspense">
+      <div class="suspense-text">Descubriendo tu rol...</div>
+      <div class="suspense-ball">⚽</div>
+    </div>
+    <div id="role-reveal" class="role-reveal hidden">
+      <div id="role-card" class="role-card">
+        <div id="role-category" class="role-category"></div>
+        <div id="role-title" class="role-title"></div>
+        <div id="role-word" class="role-word"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA: Debate -->
+  <div id="screen-debate" class="screen">
+    <h2>🗣️ FASE DE DEBATE</h2>
+    <div class="timer-display">
+      <div class="timer-circle">
+        <span id="debate-timer">90</span>
+      </div>
+    </div>
+    <div id="debate-word-reminder" class="word-reminder"></div>
+    <p class="debate-hint">Describí tu palabra sin decirla. ¡Detectá al impostor!</p>
+  </div>
+
+  <!-- PANTALLA: Votar expulsión -->
+  <div id="screen-vote-kick" class="screen">
+    <h2>🗳️ ¿QUIÉN ES EL IMPOSTOR?</h2>
+    <div class="timer-display small">
+      <div class="timer-circle">
+        <span id="kick-timer">30</span>
+      </div>
+    </div>
+    <div id="kick-players" class="kick-list"></div>
+    <div id="kick-status" class="vote-status"></div>
+  </div>
+
+  <!-- PANTALLA: Resultado -->
+  <div id="screen-result" class="screen">
+    <div id="result-content" class="result-content"></div>
+  </div>
+
+  <!-- PANTALLA: Fin del juego -->
+  <div id="screen-gameover" class="screen">
+    <div id="gameover-content" class="gameover-content"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/player/app.js"></script>
+</body>
+</html>

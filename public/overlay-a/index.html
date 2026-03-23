@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Impostor 412 - Overlay A (Marcador Deportivo)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/overlay-a/style.css">
+</head>
+<body>
+
+  <!-- Barra superior tipo marcador deportivo -->
+  <div class="scoreboard">
+    <!-- Logo izquierda -->
+    <div class="sb-logo">
+      <span class="sb-412">4<span class="g">1</span>2</span>
+      <span class="sb-impostor">IMPOSTOR</span>
+    </div>
+
+    <!-- Info central -->
+    <div class="sb-center">
+      <div class="sb-category" id="info-category">ESPERANDO...</div>
+      <div class="sb-round" id="info-round">LOBBY</div>
+    </div>
+
+    <!-- Timer derecha -->
+    <div class="sb-timer hidden" id="overlay-timer">
+      <div class="sb-timer-label" id="timer-label">DEBATE</div>
+      <div class="sb-timer-value" id="timer-value">90</div>
+    </div>
+  </div>
+
+  <!-- Jugadores en fila horizontal debajo del marcador -->
+  <div class="players-strip" id="overlay-players"></div>
+
+  <!-- Alerta dramática central -->
+  <div class="overlay-alert hidden" id="overlay-alert">
+    <div class="alert-content" id="alert-content"></div>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Balón animado -->
+  <div class="ball-anim hidden" id="ball-anim">⚽</div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/overlay-a/app.js"></script>
+</body>
+</html>
