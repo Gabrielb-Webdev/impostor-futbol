@@ -99,8 +99,9 @@ body {
 }
 
 .bb-chip.dead {
-  opacity: 0.3;
-  border-color: rgba(229, 57, 53, 0.3);
+  border-color: var(--red);
+  background: rgba(229, 57, 53, 0.12);
+  box-shadow: 0 0 12px rgba(229, 57, 53, 0.25);
 }
 
 .bb-chip.impostor {

@@ -146,7 +146,7 @@ body {
 }
 
 .mn-p.dead {
-  opacity: 0.3;
+  background: rgba(229, 57, 53, 0.2);
 }
 
 .mn-p.impostor {
@@ -161,7 +161,7 @@ body {
 }
 
 .mn-p-dot.alive { background: var(--green-neon); box-shadow: 0 0 6px rgba(0, 230, 118, 0.5); }
-.mn-p-dot.dead-dot { background: var(--red); opacity: 0.5; }
+.mn-p-dot.dead-dot { background: var(--red); box-shadow: 0 0 8px rgba(229, 57, 53, 0.6); animation: impPulse 1s infinite alternate; }
 .mn-p-dot.imp-dot { background: var(--red); box-shadow: 0 0 8px rgba(229, 57, 53, 0.6); animation: impPulse 1s infinite alternate; }
 
 @keyframes impPulse {
