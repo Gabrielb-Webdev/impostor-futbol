@@ -111,6 +111,11 @@
     categoriesList.innerHTML = '';
     // Actualizar dropdown de categorías
     categorySelect.innerHTML = '<option value="">-- Seleccionar categoría --</option>';
+    // Opción aleatorio
+    const randOpt = document.createElement('option');
+    randOpt.value = '__random__';
+    randOpt.textContent = '🎲 ALEATORIO';
+    categorySelect.appendChild(randOpt);
     for (const [name, words] of Object.entries(cats)) {
       // Dropdown
       const opt = document.createElement('option');

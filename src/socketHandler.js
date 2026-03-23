@@ -108,7 +108,13 @@ module.exports = function (io) {
         socket.emit('host:error', 'Seleccioná una categoría');
         return;
       }
-      const ok = game.setCategoryDirectly(category);
+      // Si es aleatorio, elegir una categoría al azar
+      let selectedCategory = category;
+      if (category === '__random__') {
+        const cats = Object.keys(game.getAllCategories());
+        selectedCategory = cats[Math.floor(Math.random() * cats.length)];
+      }
+      const ok = game.setCategoryDirectly(selectedCategory);
       if (!ok) {
         socket.emit('host:error', 'Categoría inválida');
         return;

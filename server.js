@@ -44,9 +44,19 @@ app.get('/overlay-c', (_req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // API: Generar QR con la URL del jugador
-app.get('/api/qr', async (_req, res) => {
-  const ip = getLocalIP();
-  const url = `http://${ip}:${PORT}/player`;
+app.get('/api/qr', async (req, res) => {
+  // En producción usa el host del request, en local usa IP local
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'http';
+  const host = req.headers['x-forwarded-host'] || req.headers.host;
+  let url;
+  if (process.env.BASE_URL) {
+    url = `${process.env.BASE_URL}/player`;
+  } else if (host && !host.includes('localhost') && !host.match(/^\d+\.\d+\.\d+\.\d+/)) {
+    url = `${protocol}://${host}/player`;
+  } else {
+    const ip = getLocalIP();
+    url = `http://${ip}:${PORT}/player`;
+  }
   try {
     const qrDataUrl = await QRCode.toDataURL(url, {
       width: 300,

@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#00e676">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Impostor 412">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
   <title>Impostor 412 - Jugador</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
@@ -89,7 +95,46 @@
     <div id="gameover-content" class="gameover-content"></div>
   </div>
 
+  <!-- BANNER DE INSTALACIÓN PWA -->
+  <div id="install-banner" class="install-banner hidden">
+    <div class="install-content">
+      <div class="install-icon">📲</div>
+      <div class="install-text">
+        <strong>Instalá Impostor 412</strong>
+        <span>Agregalo a tu pantalla de inicio</span>
+      </div>
+      <button id="btn-install" class="btn-install">INSTALAR</button>
+      <button id="btn-install-close" class="btn-install-close">✕</button>
+    </div>
+  </div>
+
+  <!-- GUÍA INSTALACIÓN iOS -->
+  <div id="ios-install-guide" class="ios-guide hidden">
+    <div class="ios-guide-content">
+      <div class="ios-guide-header">
+        <strong>Instalá Impostor 412</strong>
+        <button id="btn-ios-close" class="btn-install-close">✕</button>
+      </div>
+      <div class="ios-steps">
+        <div class="ios-step">
+          <span class="ios-step-num">1</span>
+          <span>Tocá el botón <strong>Compartir</strong> <span class="ios-share-icon">⬆</span> en la barra de Safari</span>
+        </div>
+        <div class="ios-step">
+          <span class="ios-step-num">2</span>
+          <span>Buscá y tocá <strong>"Agregar a inicio"</strong></span>
+        </div>
+        <div class="ios-step">
+          <span class="ios-step-num">3</span>
+          <span>Tocá <strong>"Agregar"</strong> y listo!</span>
+        </div>
+      </div>
+      <div class="ios-arrow">▼</div>
+    </div>
+  </div>
+
   <script src="/socket.io/socket.io.js"></script>
   <script src="/player/app.js"></script>
+  <script src="/player/pwa-install.js"></script>
 </body>
 </html>

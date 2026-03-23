@@ -1,0 +1,24 @@
+{
+  "name": "Impostor 412 - La Cobra",
+  "short_name": "Impostor 412",
+  "description": "Juego del Impostor temático del canal 412 de La Cobra",
+  "start_url": "/player",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1a1a1a",
+  "theme_color": "#00e676",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
