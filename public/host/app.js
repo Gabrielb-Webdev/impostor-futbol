@@ -116,7 +116,7 @@
     categoriesList.innerHTML = '';
     allCategoriesData = cats;
     // Actualizar dropdown de categorías
-    categorySelect.innerHTML = '<option value="">-- Seleccionar categoría --</option>';
+    categorySelect.innerHTML = '<option value="" disabled selected>-- Seleccionar categoría --</option>';
     // Opción aleatorio
     const randOpt = document.createElement('option');
     randOpt.value = '__random__';
