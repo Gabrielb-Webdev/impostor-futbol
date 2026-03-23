@@ -170,7 +170,7 @@
       btn.addEventListener('click', () => {
         socket.emit('player:voteKick', p.id);
         hasVotedKick = true;
-        document.querySelectorAll('.kick-btn').forEach(b => {
+        document.querySelectorAll('.kick-btn, .skip-vote-btn').forEach(b => {
           b.disabled = true;
           b.classList.remove('voted');
         });
@@ -179,6 +179,22 @@
       });
       kickPlayers.appendChild(btn);
     });
+
+    // Botón saltar votación
+    const skipBtn = document.createElement('button');
+    skipBtn.className = 'kick-btn skip-vote-btn';
+    skipBtn.innerHTML = '<span class="player-icon">⏭️</span>Saltar votación';
+    skipBtn.addEventListener('click', () => {
+      socket.emit('player:voteKick', null);
+      hasVotedKick = true;
+      document.querySelectorAll('.kick-btn, .skip-vote-btn').forEach(b => {
+        b.disabled = true;
+        b.classList.remove('voted');
+      });
+      skipBtn.classList.add('voted');
+      kickStatus.textContent = 'Votación saltada ✓';
+    });
+    kickPlayers.appendChild(skipBtn);
   }
 
   // ----- RESULT -----

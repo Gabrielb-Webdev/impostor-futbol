@@ -425,6 +425,23 @@ body {
   cursor: default;
 }
 
+.skip-vote-btn {
+  border-color: var(--gray);
+  background: rgba(100, 100, 100, 0.15);
+  color: var(--gray);
+  margin-top: 8px;
+}
+
+.skip-vote-btn:hover {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.skip-vote-btn.voted {
+  border-color: var(--gray);
+  background: rgba(100, 100, 100, 0.25);
+}
+
 /* ----- Result ----- */
 .result-content {
   text-align: center;

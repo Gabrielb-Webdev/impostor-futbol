@@ -275,6 +275,15 @@ function startKickVote() {
 function voteKickPlayer(socketId, targetId) {
   const p = state.players[socketId];
   if (!p || !p.alive || p.hasVotedKick) return false;
+
+  // Skip vote (targetId es null)
+  if (!targetId) {
+    p.hasVotedKick = true;
+    p.voteTarget = '__skip__';
+    state.kickVotes['__skip__'] = (state.kickVotes['__skip__'] || 0) + 1;
+    return true;
+  }
+
   const target = state.players[targetId];
   if (!target || !target.alive) return false;
   if (socketId === targetId) return false;
@@ -296,7 +305,8 @@ function resolveKick() {
     else if (votes === maxVotes) targets.push(id);
   }
   const eliminatedId = targets[Math.floor(Math.random() * targets.length)];
-  if (eliminatedId && state.players[eliminatedId]) {
+  // Si el ganador es __skip__ o no existe, nadie es eliminado
+  if (eliminatedId && eliminatedId !== '__skip__' && state.players[eliminatedId]) {
     state.players[eliminatedId].alive = false;
     state.eliminatedThisRound = {
       id: eliminatedId,
