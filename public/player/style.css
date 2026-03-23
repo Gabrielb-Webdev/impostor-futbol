@@ -442,6 +442,43 @@ body {
   background: rgba(100, 100, 100, 0.25);
 }
 
+/* ----- Spectator (eliminado) ----- */
+.spectator-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+.spectator-icon {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.spectator-card h2 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: var(--red);
+  text-shadow: 0 0 20px rgba(229, 57, 53, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.spectator-text {
+  color: var(--gray);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.spectator-phase {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.spectator-round {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
 /* ----- Result ----- */
 .result-content {
   text-align: center;

@@ -88,19 +88,25 @@
         break;
 
       case 'debate':
-        hasVotedKick = false; // Reset para la nueva ronda de votación
-        showScreen('debate');
-        if (myRole) {
-          if (myRole.isImpostor) {
-            debateWordReminder.innerHTML = '🕵️ <strong style="color:var(--red)">SOS EL IMPOSTOR</strong> — Disimulá y descubrí la palabra';
-          } else {
-            debateWordReminder.innerHTML = 'Tu palabra: <strong>' + escapeHtml(myRole.word) + '</strong>';
+        hasVotedKick = false;
+        if (isEliminated(state.players)) {
+          showSpectator(state, 'DEBATE');
+        } else {
+          showScreen('debate');
+          if (myRole) {
+            if (myRole.isImpostor) {
+              debateWordReminder.innerHTML = '🕵️ <strong style="color:var(--red)">SOS EL IMPOSTOR</strong> — Disimulá y descubrí la palabra';
+            } else {
+              debateWordReminder.innerHTML = 'Tu palabra: <strong>' + escapeHtml(myRole.word) + '</strong>';
+            }
           }
         }
         break;
 
       case 'vote_kick':
-        if (!hasVotedKick) {
+        if (isEliminated(state.players)) {
+          showSpectator(state, 'VOTACIÓN');
+        } else if (!hasVotedKick) {
           showScreen('vote-kick');
           renderKickButtons(state.players);
           kickStatus.textContent = '';
@@ -158,6 +164,19 @@
       else c.classList.remove('warning');
     });
   });
+
+  // ----- SPECTATOR (eliminado) -----
+  function isEliminated(players) {
+    if (!players || !myId) return false;
+    const me = players.find(p => p.id === myId);
+    return me && !me.alive;
+  }
+
+  function showSpectator(state, phaseLabel) {
+    showScreen('spectator');
+    document.getElementById('spectator-phase').textContent = '📡 ' + phaseLabel;
+    document.getElementById('spectator-round').textContent = 'Ronda ' + (state.round || 1);
+  }
 
   // ----- KICK VOTE -----
   function renderKickButtons(players) {
