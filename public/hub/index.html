@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impostor 412 — La Cobra 🐍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      font-family: 'Barlow Condensed', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .hub-container {
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3.5rem;
+      color: #00e676;
+      text-shadow: 0 0 20px rgba(0,230,118,0.4);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .logo-subtitle {
+      font-size: 1.2rem;
+      color: #888;
+      margin-bottom: 2.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-label {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.3rem;
+      color: #666;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .section-label:first-of-type { margin-top: 0; }
+
+    .hub-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .hub-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #e0e0e0;
+      transition: all 0.2s ease;
+    }
+
+    .hub-link:hover {
+      background: #222;
+      border-color: #00e676;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0,230,118,0.15);
+    }
+
+    .hub-link .icon {
+      font-size: 2rem;
+      width: 50px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .hub-link .info {
+      text-align: left;
+    }
+
+    .hub-link .info .name {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.4rem;
+      color: #00e676;
+      line-height: 1.1;
+    }
+
+    .hub-link .info .desc {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.3;
+    }
+
+    .hub-link.host-link:hover { border-color: #ffc107; }
+    .hub-link.host-link .info .name { color: #ffc107; }
+
+    .hub-link.player-link:hover { border-color: #00e676; }
+
+    .hub-link.overlay-link:hover { border-color: #42a5f5; }
+    .hub-link.overlay-link .info .name { color: #42a5f5; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #222;
+      margin: 0.5rem 0;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #444;
+    }
+
+    .footer a {
+      color: #00e676;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="hub-container">
+    <div class="logo-title">IMPOSTOR 412</div>
+    <div class="logo-subtitle">La Cobra 🐍 Canal 412</div>
+
+    <div class="section-label">Juego</div>
+    <div class="hub-links">
+      <a href="/host" class="hub-link host-link">
+        <div class="icon">🎮</div>
+        <div class="info">
+          <div class="name">Panel del Host</div>
+          <div class="desc">Controlar partida, elegir categoría, gestionar rondas</div>
+        </div>
+      </a>
+      <a href="/player" class="hub-link player-link">
+        <div class="icon">📱</div>
+        <div class="info">
+          <div class="name">Jugador</div>
+          <div class="desc">Unirse a la partida desde el celular</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-label">Overlays para OBS</div>
+    <div class="hub-links">
+      <a href="/overlay" class="hub-link overlay-link">
+        <div class="icon">🖥️</div>
+        <div class="info">
+          <div class="name">Overlay Original</div>
+          <div class="desc">Vista completa con todos los jugadores</div>
+        </div>
+      </a>
+      <a href="/overlay-a" class="hub-link overlay-link">
+        <div class="icon">📊</div>
+        <div class="info">
+          <div class="name">Overlay A — Marcador</div>
+          <div class="desc">Estilo marcador deportivo</div>
+        </div>
+      </a>
+      <a href="/overlay-b" class="hub-link overlay-link">
+        <div class="icon">📺</div>
+        <div class="info">
+          <div class="name">Overlay B — Barra Inferior</div>
+          <div class="desc">Barra tipo transmisión deportiva</div>
+        </div>
+      </a>
+      <a href="/overlay-c" class="hub-link overlay-link">
+        <div class="icon">✨</div>
+        <div class="info">
+          <div class="name">Overlay C — Minimal</div>
+          <div class="desc">Diseño limpio y minimalista</div>
+        </div>
+      </a>
+    </div>
+
+    <p class="footer">Impostor 412 — Hecho para La Cobra 🐍</p>
+  </div>
+</body>
+</html>

@@ -15,6 +15,11 @@ const io = new Server(server, { cors: { origin: '*' } });
 
 const PORT = process.env.PORT || 3000;
 
+// Hub / Home
+app.get('/', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'hub', 'index.html'));
+});
+
 // Rutas principales (antes de static para evitar redirect 301)
 app.get('/player', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'player', 'index.html'));
