@@ -25,6 +25,11 @@
   const qrUrl = document.getElementById('qr-url');
   const categorySelect = document.getElementById('category-select');
   const startSection = document.getElementById('start-section');
+  const categoryPreview = document.getElementById('category-preview');
+  const previewTitle = document.getElementById('preview-title');
+  const previewWords = document.getElementById('preview-words');
+
+  let allCategoriesData = {}; // cache de categorías para preview
 
   const PHASE_LABELS = {
     lobby: 'LOBBY',
@@ -109,6 +114,7 @@
   // ----- CATEGORIES -----
   socket.on('host:categories', (cats) => {
     categoriesList.innerHTML = '';
+    allCategoriesData = cats;
     // Actualizar dropdown de categorías
     categorySelect.innerHTML = '<option value="">-- Seleccionar categoría --</option>';
     // Opción aleatorio
@@ -120,7 +126,7 @@
       // Dropdown
       const opt = document.createElement('option');
       opt.value = name;
-      opt.textContent = name;
+      opt.textContent = `${name} (${words.length} palabras)`;
       categorySelect.appendChild(opt);
       // Lista visual
       const item = document.createElement('div');
@@ -158,6 +164,25 @@
       return;
     }
     socket.emit('host:startGame', selectedCat);
+  });
+
+  // Preview de palabras al seleccionar categoría
+  categorySelect.addEventListener('change', () => {
+    const val = categorySelect.value;
+    if (!val || val === '__random__') {
+      categoryPreview.style.display = 'none';
+      return;
+    }
+    const words = allCategoriesData[val];
+    if (words) {
+      previewTitle.textContent = `📋 ${val}`;
+      previewWords.innerHTML = words.map(w =>
+        `<span class="preview-word-tag">${escapeHtml(w)}</span>`
+      ).join('');
+      categoryPreview.style.display = 'block';
+    } else {
+      categoryPreview.style.display = 'none';
+    }
   });
 
   btnNext.addEventListener('click', () => {

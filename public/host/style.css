@@ -401,3 +401,38 @@ h4 {
 ::-webkit-scrollbar-track { background: var(--bg-dark); border-radius: 3px; }
 ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gray); }
+
+/* Category Preview */
+.category-preview {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.preview-title {
+  font-family: var(--font-title);
+  font-size: 16px;
+  color: var(--green-neon);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.preview-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.preview-word-tag {
+  background: rgba(0, 230, 118, 0.1);
+  border: 1px solid rgba(0, 230, 118, 0.25);
+  color: var(--white);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}

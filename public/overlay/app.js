@@ -27,7 +27,19 @@
   socket.on('overlay:state', (state) => {
     // Category & round
     infoCategory.textContent = state.chosenCategory || 'ESPERANDO...';
-    infoRound.textContent = state.round > 0 ? `RONDA ${state.round}` : 'LOBBY';
+
+    // Mostrar fase actual junto con la ronda
+    const phaseLabels = {
+      lobby: 'LOBBY',
+      role_reveal: '🎭 REVELANDO ROLES',
+      debate: '🗣️ DEBATE',
+      vote_kick: '🗳️ VOTACIÓN',
+      result: '📊 RESULTADO',
+      game_over: '🏆 FIN DEL JUEGO'
+    };
+    const phaseText = phaseLabels[state.phase] || '';
+    const roundText = state.round > 0 ? `RONDA ${state.round}` : '';
+    infoRound.textContent = roundText + (roundText && phaseText ? ' — ' : '') + phaseText;
 
     // Timer visibility
     if (state.phase === 'debate' || state.phase === 'vote_kick') {

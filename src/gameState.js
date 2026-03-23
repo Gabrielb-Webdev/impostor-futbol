@@ -4,21 +4,85 @@
 // ============================================================
 
 const CATEGORIES = {
-  'Ligas europeas': [
-    'Champions League', 'Premier League', 'La Liga', 'Serie A',
-    'Bundesliga', 'Ligue 1', 'Europa League', 'Eredivisie'
+  // --- Equipos ---
+  'Equipos argentinos': [
+    'River Plate', 'Boca Juniors', 'Racing', 'Independiente',
+    'San Lorenzo', 'Huracán', 'Vélez', 'Argentinos Juniors',
+    'Lanús', 'Banfield', 'Estudiantes', 'Gimnasia',
+    'Newell\'s', 'Rosario Central', 'Talleres', 'Belgrano'
   ],
+  'Equipos europeos': [
+    'Real Madrid', 'Barcelona', 'Manchester City', 'Liverpool',
+    'PSG', 'Bayern Munich', 'Juventus', 'Inter de Milán',
+    'AC Milan', 'Chelsea', 'Arsenal', 'Atlético Madrid'
+  ],
+  // --- Canchas / Estadios ---
+  'Canchas': [
+    'La Bombonera', 'El Monumental', 'El Cilindro', 'El Libertadores de América',
+    'El Nuevo Gasómetro', 'El Ducó', 'El Fortín', 'El Coloso del Parque',
+    'Santiago Bernabéu', 'Camp Nou', 'Anfield', 'San Siro',
+    'Maracaná', 'Wembley', 'Allianz Arena', 'Signal Iduna Park'
+  ],
+  // --- Jugadores ---
   'Jugadores históricos': [
-    'Messi', 'Ronaldo', 'Zidane', 'Ronaldinho',
-    'Maradona', 'Pelé', 'Cruyff', 'Beckham'
+    'Messi', 'Maradona', 'Pelé', 'Ronaldo',
+    'Zidane', 'Ronaldinho', 'Cruyff', 'Beckham',
+    'Di Stéfano', 'Kempes', 'Batistuta', 'Riquelme'
   ],
+  'Jugadores actuales': [
+    'Messi', 'Mbappé', 'Haaland', 'Vinicius Jr',
+    'De Bruyne', 'Bellingham', 'Julián Álvarez', 'Lautaro Martínez',
+    'Dibu Martínez', 'Mac Allister', 'Enzo Fernández', 'Garnacho'
+  ],
+  // --- Técnicos ---
+  'Técnicos': [
+    'Scaloni', 'Gallardo', 'Bianchi', 'Simeone',
+    'Guardiola', 'Klopp', 'Ancelotti', 'Mourinho',
+    'Bielsa', 'Menotti', 'Bilardo', 'Sampaoli'
+  ],
+  // --- Selecciones ---
   'Selecciones': [
     'Argentina', 'Brasil', 'Francia', 'Alemania',
-    'España', 'Italia', 'Inglaterra', 'Uruguay'
+    'España', 'Italia', 'Inglaterra', 'Uruguay',
+    'Portugal', 'Holanda', 'Colombia', 'México'
   ],
+  // --- Mundiales ---
   'Mundiales': [
     'Qatar 2022', 'Rusia 2018', 'Brasil 2014', 'Sudáfrica 2010',
-    'Alemania 2006', 'Corea-Japón 2002', 'Francia 1998', 'USA 1994'
+    'Alemania 2006', 'Corea-Japón 2002', 'Francia 1998', 'USA 1994',
+    'Italia 1990', 'México 1986', 'España 1982', 'Argentina 1978'
+  ],
+  // --- Ligas ---
+  'Ligas y torneos': [
+    'Champions League', 'Premier League', 'La Liga', 'Serie A',
+    'Bundesliga', 'Ligue 1', 'Copa Libertadores', 'Copa Sudamericana',
+    'Liga Profesional', 'Copa Argentina', 'Europa League', 'Copa América'
+  ],
+  // --- Posiciones ---
+  'Posiciones': [
+    'Arquero', 'Lateral derecho', 'Defensor central', 'Lateral izquierdo',
+    'Mediocampista', 'Volante central', 'Enganche', 'Extremo derecho',
+    'Extremo izquierdo', 'Mediapunta', 'Centrodelantero', 'Segundo delantero'
+  ],
+  // --- Términos de fútbol ---
+  'Términos del fútbol': [
+    'Gol de chilena', 'Tiro libre', 'Penal', 'Córner',
+    'Offside', 'Tarjeta roja', 'Hat-trick', 'Rabona',
+    'Caño', 'Bicicleta', 'Sombrerito', 'Pared'
+  ],
+  // --- Goles históricos ---
+  'Goles históricos': [
+    'Mano de Dios', 'Gol del Siglo', 'Gol de Gotze 2014', 'Cabezazo de Zidane',
+    'Gol de Iniesta 2010', 'Tiro libre de Roberto Carlos', 'Gol de Maxi Rodríguez a México',
+    'Gol de Palermo al minuto 93', 'Gol de Riquelme de taco', 'Gol de Messi al Getafe',
+    'Gol de Messi a Irán 2014', 'Gol de Kempes final 78'
+  ],
+  // --- Frases del fútbol ---
+  'Frases del fútbol': [
+    'La pelota no se mancha', 'Se le escapó la tortuga', 'Mirá que sos malo Chilavert',
+    'Barrilete cósmico', 'No era penal', 'Mano de Dios',
+    'Qué mirás bobo', 'Muchachos ahora nos volvimos a ilusionar',
+    'Toco y me voy', 'La tenés adentro', 'Yo no me quiero ir señor Stark', 'Dale campeón'
   ]
 };
 
