@@ -88,6 +88,7 @@
         break;
 
       case 'debate':
+        hasVotedKick = false; // Reset para la nueva ronda de votación
         showScreen('debate');
         if (myRole) {
           if (myRole.isImpostor) {
