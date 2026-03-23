@@ -92,7 +92,7 @@
         showScreen('debate');
         if (myRole) {
           if (myRole.isImpostor) {
-            debateWordReminder.innerHTML = '🕵️ <strong style="color:var(--red)">IMPOSTOR</strong> — Tu palabra: <strong>' + escapeHtml(myRole.word) + '</strong>';
+            debateWordReminder.innerHTML = '🕵️ <strong style="color:var(--red)">SOS EL IMPOSTOR</strong> — Disimulá y descubrí la palabra';
           } else {
             debateWordReminder.innerHTML = 'Tu palabra: <strong>' + escapeHtml(myRole.word) + '</strong>';
           }
@@ -135,7 +135,7 @@
       if (role.isImpostor) {
         roleCard.className = 'role-card impostor';
         roleTitle.textContent = '🕵️ SOS EL IMPOSTOR';
-        roleWord.textContent = role.word;
+        roleWord.textContent = 'Descubrí la palabra secreta';
         // Vibrar si está disponible
         if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
       } else {

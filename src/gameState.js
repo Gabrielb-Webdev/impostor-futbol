@@ -246,20 +246,9 @@ function assignRoles() {
   const ids = shuffle(alive.map(p => p.id));
   const impostorIds = new Set(ids.slice(0, state.impostorCount));
 
-  // Elegir una palabra falsa de otra categoría para el impostor
-  const otherCats = Object.keys(allCats).filter(c => c !== state.chosenCategory);
-  let impostorWord = 'IMPOSTOR';
-  if (otherCats.length > 0) {
-    const rndCat = otherCats[Math.floor(Math.random() * otherCats.length)];
-    const rndWords = allCats[rndCat] || [];
-    if (rndWords.length > 0) {
-      impostorWord = rndWords[Math.floor(Math.random() * rndWords.length)];
-    }
-  }
-
   alive.forEach(p => {
     p.isImpostor = impostorIds.has(p.id);
-    p.word = p.isImpostor ? impostorWord : state.chosenWord;
+    p.word = p.isImpostor ? null : state.chosenWord;
     p.hasVotedKick = false;
     p.voteTarget = null;
   });
